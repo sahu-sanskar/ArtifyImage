@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>Image Cartoonizer</title>
+</head>
+
+<style>
+  .carousel {
+    width: 100vw;
+    height: 50vh;
+  }
+
+  .uploadanimage {
+
+    width: 100%;
+    height: 20vh;
+  }
+
+  .navbar {
+    color: white;
+  }
+</style>
+
+<body style="background-color: rgb(41, 2, 60);">
+  <div style="background-color: rgba(75, 75, 75, 0.75) ;">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Image editor</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div style="margin-top: 30px;" id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel"
+    data-bs-interval="2000">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+        aria-label="Slide 4"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://enviragallery.com/wp-content/uploads/2019/07/cartoon-yourself-photoshop.png"
+          class="d-block w-50 h-50 m-auto" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://c.vanceai.com/assets/images/cartooner/compare_2-b149092534.jpg"
+          class="d-block w-50 m-auto h-50" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://ph-files.imgix.net/9e5c549d-29fd-48c5-8a8a-0ae463e069e2.jpeg?auto=format&fit=crop&frame=1&h=512&w=1024"
+          class="d-block w-50 m-auto h-50" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://enchroma.com/cdn/shop/files/D._MONO.jpg?v=1684186198&width=2300"
+          class="d-block w-50 h-50 m-auto" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <div class="uploadanimage">
+    
+    <h2 style="margin-top: 3%;text-align: center; color: aliceblue;">Upload an image to edit:</h2>
+
+    <div style="text-align: center;margin-top: 2%;">
+
+      <form action="/cartoonize" method="post" enctype="multipart/form-data"
+        style="background: rgba(75, 75, 75, 0.75); backdrop-filter: blur(16px) saturate(180%);-webkit-backdrop-filter: blur(16px) saturate(180%); padding: 20px; border-radius: 10px; text-align: center; margin: auto; max-width: 700px; height: 150px; padding-top: 3%;">
+        <input type="file" name="file" accept=".jpg, .jpeg, .png" style="margin-bottom: 15px;  ;">
+
+        <select name="method"
+          style="height: 50px; text-align: center; margin-right: 25px; margin-top: 2px; border-radius: 7px; background-color: rgba(255, 255, 255, 0.8);">
+          <option value="Cartoonize">Cartoonize</option>
+          <option value="black_and_white">Pencil Sketch</option>
+          <option value="grayscale">grayscale</option>
+          <option value="black_and_white_to_color">color</option>
+        </select>
+
+        <button type="submit" class="btn btn-outline-secondary btn-lg"
+          style=" border: 3px solid rgb(207, 196, 196);color: aliceblue; border-radius: 7px; padding: 10px 20px; cursor: pointer;">Cartoonize</button>
+      </form>
+
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
